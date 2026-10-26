@@ -18,7 +18,7 @@ import sys
 import argparse
 from urllib.parse import quote
 
-WINDOWS_IP = "172.19.80.1"
+WINDOWS_IP = subprocess.run(['ip', 'route'], capture_output=True, text=True, check=True).stdout.split('default via ')[1].split()[0]
 CDP_PORT = 9223
 
 def get_search_page_ws():
