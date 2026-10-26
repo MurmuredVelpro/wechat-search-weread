@@ -22,7 +22,7 @@ category: social-media
 - 微信读书已登录（首次需扫码）
 - WSL 用户需 CDP 端口转发（见 [wsl-cdp-browser.md](references/wsl-cdp-browser.md)），用 `agent-browser connect "http://<IP>:9223"` 建连后无需 `--cdp` flag
 - **浏览器**：有 Edge 用 Edge，没有就 Chrome。CDP scroll 事件不触发时用 `window.dispatchEvent(new Event('scroll'))` 解决（见 [detailed-workflow.md](references/detailed-workflow.md) Step 3.2）。
-- **中间文件目录**：当前工作区根目录下的 `.weread-tmp/`。首次使用先执行 `mkdir -p .weread-tmp && printf '*\n' > .weread-tmp/.gitignore`，目录内文件不进入版本库。任务结束后删除本次生成的文件。
+- **中间文件目录**：当前工作区根目录下的 `.weread-tmp/`（仓库 `.gitignore` 已忽略）。首次使用先执行 `mkdir -p .weread-tmp`。任务结束后删除本次生成的文件。
 
 ## 流程概要（5 步，缺一不可）
 
