@@ -146,9 +146,6 @@ async def create():
 asyncio.run(create())
 "
 sleep 5
-```
-
-> 💡 **简易替代**：当 CDP websockets 路径被阻断（cron 禁用 execute_code、安全扫描器拦截 heredoc）时，可用 `agent-browser open "https://weread.qq.com/"` 替代上面的 Python 代码创建备份标签页。效果相同，更简单。
 # B. 导航到搜索页（原标签页变为搜索页，备份的 weread 标签页保持登录态）
 agent-browser goto \
   "https://search.weixin.qq.com/cgi-bin/newsearchweb/userclientjump?path=page/search/weread&query=URL编码关键词&platform=pc"
@@ -156,6 +153,8 @@ sleep 8
 agent-browser eval "document.querySelectorAll('.search_list_item').length"
 # → 初始 15 篇
 ```
+
+> 💡 **简易替代**：当 CDP websockets 路径被阻断（cron 禁用 execute_code、安全扫描器拦截 heredoc）时，可用 `agent-browser open "https://weread.qq.com/"` 替代上面代码块中的 Python 部分创建备份标签页。效果相同，更简单。
 
 ### 3.2 滚动加载（默认滚到「暂无更多内容」，500 条封顶）
 
